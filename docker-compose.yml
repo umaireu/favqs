@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - favqs-network
+
+  api:
+    build: .
+    ports:
+      - '${PORT:-3000}:3000'
+    environment:
+      DATABASE_HOST: 'mongodb'
+    depends_on:
+      - mongodb
+    networks:
+      - favqs-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  favqs-network:
+    driver: bridge

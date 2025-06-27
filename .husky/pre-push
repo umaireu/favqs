@@ -1,0 +1,2 @@
+echo "pre-push hook"
+npm test 
