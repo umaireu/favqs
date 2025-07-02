@@ -5,8 +5,10 @@ import {
   IsArray,
   ValidateNested,
   IsDate,
+  IsOptional,
 } from 'class-validator';
 import { Expose, Type } from 'class-transformer';
+
 class QuoteDetailsDto {
   @IsNumber()
   @Expose()
@@ -21,7 +23,7 @@ class QuoteDetailsDto {
   dialogue: boolean;
 
   @IsBoolean()
-  @Expose()
+  @IsOptional()
   favorite: boolean;
 
   @IsArray()
@@ -46,7 +48,7 @@ class QuoteDetailsDto {
   author: string;
 
   @IsString()
-  @Expose()
+  @IsOptional()
   author_permalink: string;
 
   @IsString()

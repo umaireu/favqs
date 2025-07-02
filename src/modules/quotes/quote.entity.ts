@@ -11,7 +11,7 @@ class QuoteDetails {
   @Column()
   dialogue: boolean;
 
-  @Column()
+  @Column({ default: false })
   favorite: boolean;
 
   @Column('array')
@@ -29,7 +29,7 @@ class QuoteDetails {
   @Column()
   author: string;
 
-  @Column()
+  @Column({ nullable: true })
   author_permalink: string;
 
   @Column()
