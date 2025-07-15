@@ -15,8 +15,8 @@ export class QuotesRepository {
     return this.quoteRepository.find();
   }
 
-  async saveOrUpdateFavoriteQuote(createQuoteDto: CreateFavoriteQuoteDto) {
-    await this.quoteRepository.findOneAndUpdate(
+  saveOrUpdateFavoriteQuote(createQuoteDto: CreateFavoriteQuoteDto) {
+    return this.quoteRepository.findOneAndUpdate(
       { 'quote.id': createQuoteDto.quote.id },
       { $set: createQuoteDto },
       {
@@ -25,7 +25,7 @@ export class QuotesRepository {
     );
   }
 
-  async deleteFavoriteQuote(quoteId: number) {
-    await this.quoteRepository.deleteOne({ 'quote.id': quoteId });
+  deleteFavoriteQuote(quoteId: number) {
+    return this.quoteRepository.deleteOne({ 'quote.id': quoteId });
   }
 }

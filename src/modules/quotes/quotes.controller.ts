@@ -22,7 +22,7 @@ export class QuotesController {
   }
 
   @Post('favorite')
-  async saveFavoriteQuote(@Body() quote: CreateFavoriteQuoteDto) {
+  saveFavoriteQuote(@Body() quote: CreateFavoriteQuoteDto) {
     return this.quotesService.saveFavoriteQuote(quote);
   }
 

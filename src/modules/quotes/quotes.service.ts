@@ -14,7 +14,7 @@ export class QuotesService {
     return this.quoteRepository.saveOrUpdateFavoriteQuote(quote);
   }
 
-  async removeFavoriteQuote(quoteId: number) {
-    await this.quoteRepository.deleteFavoriteQuote(quoteId);
+  removeFavoriteQuote(quoteId: number) {
+    return this.quoteRepository.deleteFavoriteQuote(quoteId);
   }
 }
